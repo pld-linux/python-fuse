@@ -9,7 +9,6 @@ License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://richard.jones.name/google-hacks/gmail-filesystem/%{module}-python.tar.gz
 # Source0-md5:	932cd7f1997187245206385515865ffd
-# Source0-size:	14064
 URL:		http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
 BuildRequires:	python-devel
 BuildRequires:	libfuse-devel
