@@ -1,6 +1,7 @@
 %define 	module	fuse
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
+Summary(pl):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni u¿ytkownika)
 Name:		python-%{module}
 Version:	0.1
 Release:	0.1
@@ -20,6 +21,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Python interface to FUSE (Filesystem in USErspace).
+
+%description -l pl
+Pythonowy interfejs do FUSE (Filesystem in USErspace - systemu plików
+w przestrzeni u¿ytkownika).
 
 %prep
 %setup -q -n %{module}-python
@@ -43,4 +48,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %{py_sitedir}/*.py[co]
-%{py_sitedir}/_fusemodule.so
+%attr(755,root,root) %{py_sitedir}/_fusemodule.so
