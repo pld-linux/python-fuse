@@ -32,8 +32,8 @@ Python interface to FUSE (Filesystem in USErspace).
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{py_sitescriptdir},%{py_sitedir}}
-install fuse.py[co] $RPM_BUILD_ROOT%{py_sitescriptdir}
+install -d $RPM_BUILD_ROOT{%{py_sitedir},%{py_sitedir}}
+install fuse.py[co] $RPM_BUILD_ROOT%{py_sitedir}
 install _fusemodule.so $RPM_BUILD_ROOT%{py_sitedir}/_fusemodule.so
 
 %clean
@@ -42,5 +42,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%{py_sitescriptdir}/*.py[co]
+%{py_sitedir}/*.py[co]
 %{py_sitedir}/_fusemodule.so
