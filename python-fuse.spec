@@ -31,7 +31,8 @@ w przestrzeni u¿ytkownika).
 %build
 %{py_comp} .
 %{py_ocomp} .
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags} -DFUSE_USE_VERSION=11"
 
 %install
 rm -rf $RPM_BUILD_ROOT
