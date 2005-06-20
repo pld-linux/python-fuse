@@ -1,20 +1,21 @@
 %define 	module	fuse
 
+# lacking a proper versioning scheme, we use the latest changelog entry date
+%define		_snap	20041121
+
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni u¿ytkownika)
 Name:		python-%{module}
 Version:	0.1
-Release:	0.1
+Release:	0.%{_snap}.1
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://richard.jones.name/google-hacks/gmail-filesystem/%{module}-python.tar.gz
-# Source0-md5:	932cd7f1997187245206385515865ffd
+# Source0-md5:	7d2d48b10d7e3ec3b1d04b3efbd6c955
 URL:		http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
 BuildRequires:	python-devel
 BuildRequires:	libfuse-devel
 %pyrequires_eq	python-modules
-Requires:	libfuse
-Requires:	fusermount
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,6 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc AUTHORS ChangeLog README
 %{py_sitedir}/*.py[co]
 %attr(755,root,root) %{py_sitedir}/_fusemodule.so
