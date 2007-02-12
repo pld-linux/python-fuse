@@ -4,7 +4,7 @@
 %define		_snap	20041121
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
-Summary(pl):	Pythonowy interfejs do FUSE (systemu plikÛw w przestrzeni uøytkownika)
+Summary(pl.UTF-8):   Pythonowy interfejs do FUSE (systemu plik√≥w w przestrzeni u≈ºytkownika)
 Name:		python-%{module}
 Version:	0.1
 Release:	0.%{_snap}.1
@@ -22,9 +22,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Python interface to FUSE (Filesystem in USErspace).
 
-%description -l pl
-Pythonowy interfejs do FUSE (Filesystem in USErspace - systemu plikÛw
-w przestrzeni uøytkownika).
+%description -l pl.UTF-8
+Pythonowy interfejs do FUSE (Filesystem in USErspace - systemu plik√≥w
+w przestrzeni u≈ºytkownika).
 
 %prep
 %setup -q -n %{module}-python
