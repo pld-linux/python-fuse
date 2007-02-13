@@ -4,7 +4,7 @@
 %define		_snap	20041121
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
-Summary(pl.UTF-8):   Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
+Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
 Version:	0.1
 Release:	0.%{_snap}.1
