@@ -1,7 +1,7 @@
 %define 	module	fuse
 
 # lacking a proper versioning scheme, we use the latest changelog entry date
-%define		_snap	20041121
+%define		_snap	20070119
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
@@ -30,23 +30,27 @@ w przestrzeni użytkownika).
 %setup -q -n %{module}-python
 
 %build
-%{py_comp} .
-%{py_ocomp} .
-%{__make} \
-	CFLAGS="%{rpmcflags} -DFUSE_USE_VERSION=11"
+python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{py_sitedir},%{py_sitedir}}
-install fuse.py[co] $RPM_BUILD_ROOT%{py_sitedir}
-install _fusemodule.so $RPM_BUILD_ROOT%{py_sitedir}/_fusemodule.so
+python setup.py install \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
+
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+
+find $RPM_BUILD_ROOT%{py_sitedir} -name "*.py" | xargs rm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS ChangeLog FAQ README.historic README.new_fusepy_api
 %{py_sitedir}/*.py[co]
-%attr(755,root,root) %{py_sitedir}/_fusemodule.so
+%dir %{py_sitedir}/fuseparts
+%{py_sitedir}/fuseparts/*.py[co]
+%attr(755,root,root) %{py_sitedir}/fuseparts/_fusemodule.so
