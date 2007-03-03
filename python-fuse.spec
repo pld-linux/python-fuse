@@ -15,6 +15,7 @@ Source0:	http://richard.jones.name/google-hacks/gmail-filesystem/%{module}-pytho
 URL:		http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
 BuildRequires:	python-devel
 BuildRequires:	libfuse-devel
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -41,16 +42,13 @@ python setup.py install \
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
-
-find $RPM_BUILD_ROOT%{py_sitedir} -name "*.py" | xargs rm
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog FAQ README.historic README.new_fusepy_api
+%doc AUTHORS ChangeLog README
 %{py_sitedir}/*.py[co]
-%dir %{py_sitedir}/fuseparts
-%{py_sitedir}/fuseparts/*.py[co]
-%attr(755,root,root) %{py_sitedir}/fuseparts/_fusemodule.so
+%attr(755,root,root) %{py_sitedir}/*.so
