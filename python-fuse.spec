@@ -2,7 +2,7 @@
 
 # lacking a proper versioning scheme, we use the latest changelog entry date
 %define		snap	20070119
-%define		rel		2
+%define		rel		3
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
