@@ -2,18 +2,18 @@
 
 # lacking a proper versioning scheme, we use the latest changelog entry date
 %define		snap	20070119
-%define		rel		4
+%define		rel		1
 
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
-Version:	0.1
-Release:	0.%{snap}.%{rel}
+Version:	0.2
+Release:	0.1
 License:	GPL
 Group:		Development/Languages/Python
-Source0:	http://richard.jones.name/google-hacks/gmail-filesystem/%{module}-python.tar.gz
-# Source0-md5:	7d2d48b10d7e3ec3b1d04b3efbd6c955
-URL:		http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
+Source0:	http://pypi.python.org/packages/source/f/fuse-python/fuse-python-0.2.tar.gz
+# Source0-md5:	68be744e71a42cd8a92905a49f346278
+URL:		http://pypi.python.org/pypi/fuse-python/
 BuildRequires:	libfuse-devel
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
@@ -29,7 +29,7 @@ Pythonowy interfejs do FUSE (Filesystem in USErspace - systemu plików
 w przestrzeni użytkownika).
 
 %prep
-%setup -q -n %{module}-python
+%setup -q -n fuse-python-%{version}
 
 %build
 python setup.py build
@@ -44,7 +44,7 @@ python setup.py install \
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}-%{release}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
-install xmp.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}-%{release}
+install example/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}-%{release}
 %py_postclean
 
 %clean
@@ -52,8 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS Changelog FAQ README*
 %{py_sitedir}/*.py[co]
-%attr(755,root,root) %{py_sitedir}/*.so
-%{py_sitedir}/%{module}-*.egg-info
+%{py_sitedir}/fuseparts/*.py[co]
+%attr(755,root,root) %{py_sitedir}/fuseparts/*.so
+%{py_sitedir}/%{module}_*.egg-info
 %{_examplesdir}/%{name}-%{version}-%{release}
