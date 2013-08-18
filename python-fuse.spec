@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plik√≥w w przestrzeni u≈
 Name:		python-%{module}
 Version:	0.2.1
 Release:	1
-License:	GPL
+License:	LGPL v2.1
 Group:		Development/Languages/Python
 Source0:	http://downloads.sourceforge.net/fuse/fuse-python-%{version}.tar.gz
 # Source0-md5:	9d9c5c2311ac04291ce822dfece108f8
