@@ -1,14 +1,9 @@
 %define 	module	fuse
-
-# lacking a proper versioning scheme, we use the latest changelog entry date
-%define		snap	20070119
-%define		rel		1
-
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
 Version:	0.2
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://pypi.python.org/packages/source/f/fuse-python/fuse-python-0.2.tar.gz
