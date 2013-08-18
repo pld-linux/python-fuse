@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/fuse/fuse-python-%{version}.tar.gz
 # Source0-md5:	9d9c5c2311ac04291ce822dfece108f8
 URL:		http://sourceforge.net/apps/mediawiki/fuse/index.php?title=FusePython
 BuildRequires:	libfuse-devel
+BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
