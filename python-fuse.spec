@@ -3,7 +3,7 @@ Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
 Version:	0.2.1
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		Development/Languages/Python
 Source0:	http://downloads.sourceforge.net/fuse/fuse-python-%{version}.tar.gz
