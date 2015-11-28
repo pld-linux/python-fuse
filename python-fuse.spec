@@ -28,14 +28,11 @@ w przestrzeni użytkownika).
 %setup -q -n fuse-python-%{version}
 
 %build
-%{__python} setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install \
-	--optimize=2 \
-	--skip-build \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}-%{release}
 cp -p example/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}-%{release}
