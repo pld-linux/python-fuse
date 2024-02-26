@@ -2,13 +2,13 @@
 Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
-Version:	0.2.1
-Release:	5
+Version:	1.0.7
+Release:	1
 License:	LGPL v2.1
 Group:		Development/Languages/Python
-Source0:	http://downloads.sourceforge.net/fuse/fuse-python-%{version}.tar.gz
-# Source0-md5:	9d9c5c2311ac04291ce822dfece108f8
-URL:		http://sourceforge.net/apps/mediawiki/fuse/index.php?title=FusePython
+Source0:	https://github.com/libfuse/python-fuse/archive/refs/tags/v%{version}.tar.gz
+# Source0-md5:	e463d5fb1ff20df2478cba670eaf56da
+URL:		https://github.com/libfuse/python-fuse
 BuildRequires:	libfuse-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.5
@@ -25,7 +25,7 @@ Pythonowy interfejs do FUSE (Filesystem in USErspace - systemu plików
 w przestrzeni użytkownika).
 
 %prep
-%setup -q -n fuse-python-%{version}
+%setup -q -n python-fuse-%{version}
 
 %build
 %py_build
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS Changelog FAQ README*
+%doc AUTHORS FAQ README*
 %{py_sitedir}/fuse.py[co]
 %dir %{py_sitedir}/fuseparts
 %{py_sitedir}/fuseparts/*.py[co]
