@@ -8,7 +8,7 @@ Summary:	Python interface to FUSE (Filesystem in USErspace)
 Summary(pl.UTF-8):	Pythonowy interfejs do FUSE (systemu plików w przestrzeni użytkownika)
 Name:		python-%{module}
 Version:	1.0.7
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		Development/Languages/Python
 # TODO: use named tarballs
